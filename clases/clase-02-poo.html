@@ -35,8 +35,8 @@
 				<h2><a>Temas:</a></h2>
 				<h4>Programando del lado del Servidor </h4>
 				<ul class="long-ul">
-					<li><a>Funciones propias en PHP</a></li>
-					<li>Incluir / Requerir archivos</li>
+					<li class="fragment highlight-red">Funciones propias en PHP</li>
+					<li>Incluir archivos en PHP</li>
 					<li>Clases y objetos</li>
 				</ul>
 			</section>
@@ -82,9 +82,48 @@
 				<h2><a>Temas:</a></h2>
 				<h4>Programando del lado del Servidor </h4>
 				<ul class="long-ul">
-					<li>Funciones propias en PHP</li>
-					<li><a>Incluir / Requerir archivos</a></li>
+					<li class="fragment highlight-current-red">Funciones propias en PHP</li>
+					<li class="fragment highlight-red">Incluir archivos en PHP</li>
 					<li>Clases y objetos</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Incluir archivos en PHP</a></h2>
+				<p> Las declaraciónes <code><a>include</a></code> / <code><a>require</a></code> copian todo el código
+					existente del archivo especificado dentro
+					del archivo que posee dicha declaración.</p>
+				<p> Ambas declaraciones include y require son idénticas, excepto en caso de falla.</p>
+				<p><code><a>require</a></code> producirá un error fatal (<a>E_COMPILE_ERROR</a>) y frenará el script.
+				</p>
+				<p><code><a>include</a></code> sólo producirá una advertencia (<a>E_WARNING</a>) y el script continuará.
+				</p>
+			</section>
+
+			<section class="left">
+				<h2><a>Incluir archivos en PHP</a></h2>
+				<p>Sintaxis para incluir archivos</p>
+				<pre class="php">
+	<code style="max-height: 500px;">
+	// Formas de usar include
+	include "ruta_archivo.php";
+	include_once "ruta_archivo.php";
+		
+	// Formas de usar require
+	require "ruta_archivo.php";
+	require_once "ruta_archivo.php";
+	</code>
+				</pre>
+				<p> Las declaraciónes <code><a>include_once</a></code> / <code><a>require_once</a></code> sólo incluye/requiere una vez al archivo solicitado.</p>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<h4>Programando del lado del Servidor </h4>
+				<ul class="long-ul">
+					<li>Funciones propias en PHP</li>
+					<li class="fragment highlight-current-red">Incluir archivos en PHP</li>
+					<li class="fragment highlight-red">Clases y objetos</li>
 				</ul>
 			</section>
 		</div>
@@ -100,7 +139,9 @@
 		Reveal.initialize({
 			width: 1280,
 			height: 720,
-
+			progress: true,
+			controlsLayout: 'bottom-right',
+			fragmentInURL: true,
 			dependencies: [
 				{ src: '../assets/plugin/markdown/marked.js' },
 				{ src: '../assets/plugin/markdown/markdown.js' },

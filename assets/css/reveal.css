@@ -132,7 +132,7 @@ body {
   visibility: inherit; }
 
 .reveal .slides section .fragment.highlight-red.visible {
-  color: #ff2c2d; }
+  color: darkorange; }
 
 .reveal .slides section .fragment.highlight-green.visible {
   color: #17ff2e; }
@@ -141,7 +141,7 @@ body {
   color: #1b91ff; }
 
 .reveal .slides section .fragment.highlight-current-red.current-fragment {
-  color: #ff2c2d; }
+  color: darkorange; }
 
 .reveal .slides section .fragment.highlight-current-green.current-fragment {
   color: #17ff2e; }
@@ -208,6 +208,7 @@ body {
 
 .reveal .controls .navigate-left {
   top: 42px;
+  left: 0px;
   border-right-width: 22px;
   border-right-color: #000; }
 
@@ -1403,7 +1404,8 @@ sup.sup-height {
 .snowman-title.snowman-title {
   text-transform: uppercase;
   color: white;
-  text-shadow: 1px 1px 1px black, -1px -1px 1px black, -1px 0 1px black, 0 1px 1px black;
+  text-shadow: 1px 1px 1px black, -1px -1px 1px black,
+ -1px 0 1px black, 0 1px 1px black;
   line-height: 1.05; }
 
 .snowman-correct.snowman-correct {
