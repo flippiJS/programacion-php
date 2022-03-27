@@ -114,7 +114,8 @@
 	require_once "ruta_archivo.php";
 	</code>
 				</pre>
-				<p> Las declaraciónes <code><a>include_once</a></code> / <code><a>require_once</a></code> sólo incluye/requiere una vez al archivo solicitado.</p>
+				<p> Las declaraciónes <code><a>include_once</a></code> / <code><a>require_once</a></code> sólo
+					incluye/requiere una vez al archivo solicitado.</p>
 			</section>
 
 			<section class="left">
@@ -125,6 +126,23 @@
 					<li class="fragment highlight-current-red">Incluir archivos en PHP</li>
 					<li class="fragment highlight-red">Clases y objetos</li>
 				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Clases y objetos</a></h2>
+				<p>La sintaxis básica para declarar una <a>Clase</a> y sus miembros (atributos - métodos) en PHP.</p>
+				<pre class="php">
+	<code>
+	class NombreClase
+	{
+		// Atributos (private - protected – public/var - static)
+		[Modificadores] $nombreAtributo;
+		// Métodos (private - protected – public/var - static)
+		[Modificadores] function NombreMetodo([parametros])
+		{ ... }		
+	}
+	</code>
+				</pre>
 			</section>
 		</div>
 	</div>
