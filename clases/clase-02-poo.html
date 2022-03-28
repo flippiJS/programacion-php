@@ -280,6 +280,27 @@
 				</pre>
 			</section>
 
+			<section class="left">
+				<h2><a>Clases</a> - Constructores</h2>
+				<pre class="php">
+	<code>
+	class Coche {
+		// Atributos
+		public $marca;
+		public $color;
+
+		// Constructor con parámetros opcionales
+		public function __construct($marca, $color = "") {
+			$this->marca = $marca;
+			$this->color = $color;
+		}
+	}
+	$coche = new Coche("FIAT", "NEGRO");
+	$coche = new Coche("FORD"); // Opcional 2do parámetro
+	</code>
+				</pre>
+			</section>
+
 			<section>
 				<h2 class="title"><a>Dudas ó consultas</a></h2>
 			</section>
