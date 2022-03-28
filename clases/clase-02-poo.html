@@ -27,8 +27,10 @@
 		<div class="slides">
 
 			<section class="main white">
+				<img src="../assets/img/logo.png" alt="">
 				<h1 class="title">Clase 02</h1>
 				<h2 class="subtitle">Programación Orientada a Objetos <a href="https://www.php.net/">(POO)</a></h2>
+				<small><a href="../index.html"> Volver</a></small>
 			</section>
 
 			<section class="left">
@@ -143,6 +145,143 @@
 	}
 	</code>
 				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Clases</a></h2>
+				<pre class="php">
+	<code>
+	class NombreClase
+	{
+		//Atributos.
+		private $_attr1;
+		protected $_attr2;
+
+		//Constructor
+		public function __construct() { // código }
+
+		//Métodos. 
+		private function Func1($param) { //código }
+		protected function Func2() { //código }
+		public function Func3() { //código }
+	}		
+	</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Objetos</a></h2>
+				<p>La sintaxis básica para declarar un <a>Objeto</a> en PHP.</p>
+				<p>El operador <a>-></a> es utilizado para acceder a los <a>miembros de instancia</a> de la clase.
+					El operador <a>::</a> es utilizado para acceder a los <a>miembros estáticos</a> de la clase.</p>
+				<pre class="php">
+	<code>
+	//Creo el objeto. 
+	$nombreObj = new NombreClase();
+	//Métodos de instancia.  //Atributos de instancia.
+	$nombreObj->Func3();     $nombreObj->attr3;
+	//Métodos de clase.      //Atributos estáticos
+	NombreClase::Func4();    NombreClase::$attr4;	
+	</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Clases</a> - $this</h2>
+				<p>La sintaxis para acceder a un <a>atributo</a> o <a>método</a> de una instancia en PHP.</p>
+				<pre class="php">
+	<code>
+	class ClaseBase {
+		public function __construct($id,$nombre){
+			//Inicializar variables aquí
+			if($this->validar($id)){
+				$this->id=$id;
+				$this->nombre=$nombre;
+			}		
+		}
+		public function validar($id){
+			//realiza una validación 			 
+		}
+	}			
+	</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Clases</a> - Herencia</h2>
+				<p>En PHP se indica herencia a partir de <a>extends</a>.</p>
+				<pre class="php">
+	<code>
+	class ClaseBase {
+		public function __construct(){
+			//Inicializar variables aquí
+		}
+	}
+	class ClaseDerivada extends ClaseBase {
+		public function __construct(){
+			parent::__construct();
+			//Inicializar variables propias aquí
+		}
+	}			
+	</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Clases</a> - Polimorfismo</h2>
+				<p>En PHP cualquier método puede ser modificado en sus clases derivadas.</p>
+				<pre class="php">
+	<code>
+	class ClaseBase {
+		public function Saludar(){
+			return "Hola";
+		}
+	}
+	class ClaseDerivada extends ClaseBase {
+		public function Saludar(){
+			return parent::Saludar()." "."mundo";
+		}
+	}			
+	</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Clases</a> - Interfaces</h2>
+				<p>Las interfaces en PHP sólo pueden contener declaraciones de métodos. Y se implementan con <a>implements</a>.</p>
+				<pre class="php">
+	<code>
+	interface IInterfaz{
+		function Metodo();
+	}
+	class Clase implements IInterfaz {
+		public function Metodo(){
+			//Implementación aquí
+		}
+	}		
+	</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Clases</a> - Clases abstractas</h2>
+				<p>Las clases abstractas pueden contener atributos  y métodos, pero sólo ellas pueden contener métodos con el modificador <a>abstract</a>.</p>
+				<pre class="php">
+	<code>
+	abstract class ClaseAbstracta {
+		public abstract function Metodo();
+	}
+	class ClaseDerivada extends ClaseAbstracta {
+		public function Metodo(){
+			 //Implementación aquí
+		}
+	}		
+	</code>
+				</pre>
+			</section>
+
+			<section>
+				<h2 class="title"><a>Dudas ó consultas</a></h2>
 			</section>
 		</div>
 	</div>
