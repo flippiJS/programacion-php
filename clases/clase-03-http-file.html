@@ -98,6 +98,103 @@
 				</pre>
 			</section>
 
+			<section class="left">
+				<h2>Abrir archivos - <a>fopen()</a></h2>
+				<table style="font-size: 22px;">
+					<thead>
+						<tr>
+							<th><code class="parameter">Modo</code></th>
+							<th>Descripción</th>
+						</tr>
+
+					</thead>
+
+					<tbody class="tbody">
+						<tr>
+							<td><code class="literal"><a>r</a></code></td>
+							<td>
+								Abre un archivo para sólo lectura. El cursor comienza al principio del archivo.
+							</td>
+						</tr>
+
+						<tr>
+							<td><code class="literal"><a>r+</a></code></td>
+							<td>
+								Apertura para lectura y escritura; coloca el puntero al fichero al
+								principio del fichero.
+							</td>
+						</tr>
+
+						<tr>
+							<td><code class="literal"><a>w</a></code></td>
+							<td>
+								Apertura para sólo escritura; coloca el puntero al fichero al
+								principio del fichero y trunca el fichero a longitud cero.
+								Si el fichero no existe se intenta crear.
+							</td>
+						</tr>
+
+						<tr>
+							<td><code class="literal"><a>w+</a></code></td>
+							<td>
+								Apertura para lectura y escritura; coloca el puntero al fichero al
+								principio del fichero y trunca el fichero a longitud cero.
+								Si el fichero no existe se intenta crear.
+							</td>
+						</tr>
+
+						<tr>
+							<td><code class="literal"><a>a</a></code></td>
+							<td>
+								Apertura para sólo escritura; coloca el puntero del fichero al
+								final del mismo. Si el fichero no existe, se intenta crear.
+							</td>
+						</tr>
+
+						<tr>
+							<td><code class="literal"><a>a+</a></code></td>
+							<td>
+								Apertura para lectura y escritura; coloca el puntero del fichero al
+								final del mismo. Si el fichero no existe, se intenta crear.
+							</td>
+						</tr>
+
+						<tr>
+							<td><code class="literal"><a>x</a></code></td>
+							<td>
+								Crea un nuevo archivo para sólo lectura. Retorna <a>FALSE</a> y un error si el archivo
+								existe.
+							</td>
+						</tr>
+
+						<tr>
+							<td><code class="literal"><a>x+</a></code></td>
+							<td>
+								Creación y apertura para lectura y escritura; de otro modo tiene
+								el mismo comportamiento que <code class="literal"><a>x</a></code>.
+							</td>
+						</tr>
+					</tbody>
+
+				</table>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li class="fragment highlight-red">Manipulación de archivos</li>
+					<ul class="long-ul">
+						<li>Generalidades</li>
+						<li>Abrir archivos</li>
+						<li class="fragment highlight-red">Cerrar archivos</li>
+						<li>Leer archivos</li>
+						<li>Escribir archivos</li>
+						<li>Copiar archivos</li>
+						<li>Borrar archivos</li>
+					</ul>
+					<li>Envío de datos</li>
+				</ul>
+			</section>
 		</div>
 	</div>
 
