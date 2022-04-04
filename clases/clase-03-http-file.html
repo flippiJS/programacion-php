@@ -93,7 +93,7 @@
 				<pre class="php">
 	<code>
 		// int fopen(archivo, modo);
-		$gestor = fopen("/archivo.txt", "r");
+		$archivo = fopen("archivo.txt", "r");
 	</code>
 				</pre>
 			</section>
@@ -193,6 +193,200 @@
 						<li>Borrar archivos</li>
 					</ul>
 					<li>Envío de datos</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2>Cerrar archivos - <a>fclose()</a></h2>
+				<p>Nos permite cerrar un archivo abierto.</p>
+				<p><a>fclose</a> requiere el indicador del archivo a ser cerrado (la variable que referencia al
+					archivo).</p>
+				<p>Retorna <a>TRUE</a> si tuvo éxito, <a>FALSE</a> caso contrario.</p>
+				<pre class="php">
+	<code>
+		$archivo = fopen("archivo.txt", "r");
+		// Trabajamos con el archivo
+		fclose($archivo);
+	</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li class="fragment highlight-red">Manipulación de archivos</li>
+					<ul class="long-ul">
+						<li>Generalidades</li>
+						<li>Abrir archivos</li>
+						<li>Cerrar archivos</li>
+						<li class="fragment highlight-red">Leer archivos</li>
+						<li>Escribir archivos</li>
+						<li>Copiar archivos</li>
+						<li>Borrar archivos</li>
+					</ul>
+					<li>Envío de datos</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2>Leer archivos - <a>fread()</a></h2>
+				<p>Nos permite leer de un archivo abierto.</p>
+				<p>El primer parámetro de <a>fread</a> contiene el indicador del archivo a ser leído, y el segundo
+					especifica el número máximo de bytes que serán leídos.</p>
+				<p>Retorna un string que representa al contenido del archivo leído.</p>
+				<pre class="php">
+	<code>
+		$archivo = fopen("archivo.txt","r");
+		echo fread($archivo, filesize("archivo.txt"));
+		// Lee el archivo completo
+	</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2>Leer archivos - <a>fgets()</a></h2>
+				<p>Nos permite leer <a>una línea</a> de una archivo abierto.</p>
+				<p>Requiere como parámetro el indicador del archivo a ser leído, y retorna un string que representa la
+					línea que fue leída.</p>
+				<p>Después de cada llamada a <a>fgets</a>, el cursor se mueve a la siguiente línea.</p>
+				<pre class="php">
+	<code>
+		$archivo = fopen("archivo.txt","r");
+		echo fgets($archivo);
+	</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2>Leer archivos - <a>feof()</a> (End Of File)</h2>
+				<p>Retorna un booleano que indica si se ha llegado al fin del archivo.</p>
+				<p>Requiere cómo parámetro el indicador.</p>
+				<pre class="php">
+	<code>
+		$archivo = fopen("archivo.txt","r");
+		// Lee línea a línea hasta EOF
+		while(!feof($archivo))
+		{
+			echo fgets($archivo), "<br/>";
+		}
+		fclose($archivo);
+	</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li class="fragment highlight-red">Manipulación de archivos</li>
+					<ul class="long-ul">
+						<li>Generalidades</li>
+						<li>Abrir archivos</li>
+						<li>Cerrar archivos</li>
+						<li>Leer archivos</li>
+						<li class="fragment highlight-red">Escribir archivos</li>
+						<li>Copiar archivos</li>
+						<li>Borrar archivos</li>
+					</ul>
+					<li>Envío de datos</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2>Escribir archivos - <a>fwrite() - fputs()</a></h2>
+				<p>Nos permite escribir en un archivo abierto.</p>
+				<p>La función parará cuando llegue al fin del archivo o cuando alcance la longitud especificada</p>
+				<p>El primer parámetro contiene el archivo a ser leído, y el segundo es el string a ser escrito. El
+					tercer parámetro es opcional e indica la cantidad de bytes a ser escritos.</p>
+				<p>Retorna la <a>cantidad de bytes</a> que se escribieron o <a>FALSE</a> si hubo error.</p>
+			</section>
+
+			<section class="left">
+				<h2>Escribir archivos - <a>fwrite() - fputs()</a></h2>
+				<pre class="php">
+	<code>
+		// Usando fwrite()
+		$archivo = fopen("archivo.txt","w");
+		echo fwrite($archivo,"Prueba de guardado");
+		fclose($archivo);		
+
+		// Usando fputs()
+		$archivo = fopen("archivo.txt","w");
+		echo fputs($archivo,"Prueba de guardado");
+		fclose($archivo);	
+	</code>
+				</pre>
+			</section>
+
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li class="fragment highlight-red">Manipulación de archivos</li>
+					<ul class="long-ul">
+						<li>Generalidades</li>
+						<li>Abrir archivos</li>
+						<li>Cerrar archivos</li>
+						<li>Leer archivos</li>
+						<li>Escribir archivos</li>
+						<li class="fragment highlight-red">Copiar archivos</li>
+						<li>Borrar archivos</li>
+					</ul>
+					<li>Envío de datos</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2>Copiar archivos - <a>copy()</a></h2>
+				<p>Permite copiar un archivo.</p>
+				<p>Los parámetros que recibe son los nombres de los archivos. El primero es el archivo origen, luego el
+					destino de la copia.</p>
+				<p>Retorna <a>TRUE</a> en caso de éxito o <a>FALSE</a> si hubo algún error.</p>
+				<pre class="php">
+	<code>
+		echo copy("archivoACopiar.txt","archivoCopiado.txt");
+	</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li class="fragment highlight-red">Manipulación de archivos</li>
+					<ul class="long-ul">
+						<li>Generalidades</li>
+						<li>Abrir archivos</li>
+						<li>Cerrar archivos</li>
+						<li>Leer archivos</li>
+						<li>Escribir archivos</li>
+						<li>Copiar archivos</li>
+						<li class="fragment highlight-red">Borrar archivos</li>
+					</ul>
+					<li>Envío de datos</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2>Borrar archivos - <a>unlink()</a></h2>
+				<p>Permite eliminar un archivo.</p>
+				<p>Recibe el nombre del archivo a ser borrado como primer parámetro.</p>
+				<p>Retorna <a>TRUE</a> en caso de éxito o <a>FALSE</a> si hubo algún error.</p>
+				<pre class="php">
+	<code>
+		echo unlink("archivo.txt");
+	</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li class="fragment highlight-current-red">Manipulación de archivos</li>
+					<li class="fragment highlight-red">Envío de datos</li>
+					<ul class="long-ul">
+						<li class="fragment highlight-red">HTTP</li>
+						<li>GET</li>
+						<li>POST</li>
+					</ul>
 				</ul>
 			</section>
 		</div>
