@@ -232,9 +232,9 @@
 			</section>
 
 			<section>
-				<h2 class="title"><a target="_blank" href="https://phpsandbox.io/e/x/ezqev">DEMO</a>
+				<h2 class="title"><a target="_blank" href="https://phpsandbox.io/e/x/vzccz">DEMO</a>
 				</h2>
-				<p><a target="_blank" href="https://phpsandbox.io/e/x/ezqev">https://phpsandbox.io/e/x/ezqev</a></p>
+				<p><a target="_blank" href="https://phpsandbox.io/e/x/vzccz">https://phpsandbox.io/e/x/vzccz</a></p>
 			</section>
 
 			<section class="left">
@@ -245,8 +245,8 @@
 					<li class="fragment highlight-red">Cookies</li>
 					<ul class="long-ul">
 						<li class="fragment highlight-red">Generalidades</li>
-						<li>Abrir una sesión</li>
-						<li>Destruir una sesión</li>
+						<li>Establecer una cookie</li>
+						<li>Borrar una cookie</li>
 					</ul>
 				</ul>
 			</section>
@@ -258,6 +258,112 @@
 				<p>Cada vez que el mismo equipo solicita una página con un navegador, se <a>enviará la cookie
 						también</a>.</p>
 				<p>Con <a>PHP</a>, se puede tanto crear como recuperar valores de cookies.</p>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Subir archivos al servidor</li>
+					<li>Variables de sesión</li>
+					<li class="fragment highlight-red">Cookies</li>
+					<ul class="long-ul">
+						<li>Generalidades</li>
+						<li class="fragment highlight-red">Establecer una cookie</li>
+						<li>Borrar una cookie</li>
+					</ul>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Cookies</a> - Establecer una cookie</h2>
+				<p><a>setcookie()</a> define una cookie para ser enviada junto con el resto de las cabeceras de HTTP.
+				</p>
+				<p>Al igual que otras cabeceras, las cookies deben ser enviadas antes de que el script genere ninguna
+					salida (es una restricción del protocolo).</p>
+				<p>Esto implica que las llamadas a esta función se coloquen antes de que se genere cualquier salida,
+					incluyendo las etiquetas <code><a><&zwj;html></a></code> y <code><a><&zwj;head></a></code> al igual
+					que cualquier espacio en blanco. </p>
+				<p>Una vez que han sido enviadas las cookies, se puede acceder a ellas en la próxima carga de la página
+					gracias a los arrays <a>$_COOKIE</a>.
+				</p>
+			</section>
+
+			<section class="left">
+				<h2><a>Cookies</a> - Establecer una cookie</h2>
+				<p>A excepción del parámetro <a>name</a>, los parámetros son opcionales.</p>
+				<p>Si existe algún tipo de salida anterior a la llamada de esta función, <a>setcookie()</a> fallará y
+					retornará <a>FALSE</a>.</p>
+				<p>Si <a>setcookie()</a> ejecuta satisfactoriamente, retornará <a>TRUE</a>.</p>
+				<p>Esto no indica si es que el usuario ha aceptado la cookie o no.</p>
+				<pre class="php">
+<code>
+// setcookie(name, [value], [expire], [path], [domain], [secure], [httponly]);
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); 
+// 86400 = 1 dia
+</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2>Parámetros de <a>setcookie()</a></h2>
+				<p>Es una <a>variable super global</a> que existe a partir de <a>PHP 4.1.0</a>.</p>
+				<p>Es un array asociativo de elementos cargados al script actual a través del método <a>POST</a>.</p>
+				<ul class="long-ul">
+					<li><code><a>name</a></code> - Indica el nombre de la cookie.</li>
+					<li><code><a>value</a></code> - Establece el valor de la cookie. Este valor se guarda en el cliente.
+					</li>
+					<li><code><a>expire</a></code> - Indica el tiempo en el que expira la cookie. Es una fecha Unix por
+						tanto está expresada en números de segundos a partir de la presente época.</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2>Parámetros de <a>setcookie()</a></h2>
+				<ul class="long-ul">
+					<li><code><a>path</a></code> - Indica la ruta dentro del servidor en la que la cookie estará
+						disponible.</li>
+					<li><code><a>domain</a></code> - El dominio para el cual la cookie está disponible.</li>
+					<li><code><a>secure</a></code> - Establece si la cookie sólo debiera transmitirse por una conexión
+						segura HTTPS desde el cliente. Cuando se configura como <a>TRUE</a>, la cookie sólo se creará si
+						es que
+						existe una conexión segura.</li>
+					<li><code><a>httponly</a></code> - Cuando es <a>TRUE</a> la cookie será accesible sólo a través del
+						protocolo HTTP. Esto significa que la cookie no será accesible por lenguajes de scripting, como
+						JavaScript.</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Subir archivos al servidor</li>
+					<li>Variables de sesión</li>
+					<li class="fragment highlight-red">Cookies</li>
+					<ul class="long-ul">
+						<li>Generalidades</li>
+						<li>Establecer una cookie</li>
+						<li class="fragment highlight-red">Borrar una cookie</li>
+					</ul>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Cookies</a> - Borrar una cookie</h2>
+				<p>Para borrar una cookie se debe asegurar que la fecha de expiración ya ha pasado, de este modo se
+					detonará el mecanismo de eliminación del navegador.
+				</p>
+				<pre class="php">
+<code>
+setcookie("TestCookie2", " ", time()-3600); 
+setcookie("TestCookie3", " ", time()-3600, "/~cookie/", "test.com", 1);
+</code>
+				</pre>
+			</section>
+
+			<section>
+				<h2 class="title"><a target="_blank" href="https://phpsandbox.io/e/x/k6qms">DEMO</a>
+				</h2>
+				<p><a target="_blank" href="https://phpsandbox.io/e/x/k6qms">https://phpsandbox.io/e/x/k6qms</a></p>
 			</section>
 
 			<section>
