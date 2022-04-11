@@ -108,10 +108,156 @@
 				</ul>
 			</section>
 
+			<section class="left">
+				<h2><a>Atributos</a></h2>
+				<p>El nuevo atributo booleano multiple (de HTML5) permite que los usuarios seleccionen varios archivos
+					para ser subidos al servidor.</p>
+				<p>El atributo accept, permite filtrar (en el cliente) los tipos de archivos que se permitirán subir al
+					servidor.</p>
+				<pre class="html">
+<code>
+	<&zwj;form action="upload.php" method="post" 
+	enctype="multipart/form-data" >
+		<&zwj;input type="file" name="archivos[]" multiple
+		accept="image/png,.jpg,image/gif" />
+		<&zwj;input type="submit" value="Subir" />
+	<&zwj;/form>
+</code>
+				</pre>
+			</section>
+
 			<section>
-				<h2 class="title"><a target="_blank"
-						href="https://phpsandbox.io/e/x/ezqev?layout=EditorPreview&defaultPath=%2F&theme=dark&showExplorer=no&openedFiles=">DEMO</a>
+				<h2 class="title"><a target="_blank" href="https://phpsandbox.io/e/x/ezqev">DEMO</a>
 				</h2>
+				<p><a target="_blank" href="https://phpsandbox.io/e/x/ezqev">https://phpsandbox.io/e/x/ezqev</a></p>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li class="fragment highlight-current-red">Subir archivos al servidor</li>
+					<li class="fragment highlight-red">Variables de sesión</li>
+					<ul class="long-ul">
+						<li class="fragment highlight-red">Generalidades</li>
+						<li>Abrir una sesión</li>
+						<li>Destruir una sesión</li>
+					</ul>
+					<li>Cookies</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Variables de Sesión</a> - Generalidades</h2>
+				<p>Las <a>variables de sesión</a> son una forma de guardar información de un usuario particular, que
+					puede ser
+					usada en distintas páginas del sitio Web.</p>
+				<p>La información <a>NO</a> es almacenada en el cliente.</p>
+				<p>Dado que <a>HTTP</a> NO mantiene estado entre páginas, la utilización de variables de sesión permite
+					mantener información acerca de un solo usuario, y están disponibles para todas las páginas del sitio
+					Web.</p>
+				<p>Por defecto, las variables de sesión duran hasta que el usuario cierra el navegador.</p>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Subir archivos al servidor</li>
+					<li class="fragment highlight-red">Variables de sesión</li>
+					<ul class="long-ul">
+						<li>Generalidades</li>
+						<li class="fragment highlight-red">Abrir una sesión</li>
+						<li>Destruir una sesión</li>
+					</ul>
+					<li>Cookies</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Variables de Sesión</a> - Abrir una sesión</h2>
+				<p>Una sesión se inicia con la función <a>session_start()</a>.</p>
+				<p>Dicha función debe estar declarada en cada script al que deseamos utilizar con variables de sesión.
+				</p>
+				<p>Las variables de sesión se establecen con la variable super global de PHP: <a>$_SESSION</a>.</p>
+				<pre class="php">
+<code>
+	session_start();
+	$_SESSION["CLAVE"] = "VALOR";
+</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Variables de Sesión</a> - Abrir una sesión</h2>
+				<p>La mayoría de las sesiones establecen una clave de usuario en el cliente, que se parece a:
+					<a>765487cf34ert8dede5a562e4f3a7e12</a>.
+				</p>
+				<p>Cuando una sesión se abre en otra página, se examina el equipo para obtener una clave de usuario.</p>
+				<p>Si hay una coincidencia, se accede a esa sesión, si no, se inicia una nueva sesión.</p>
+				<pre class="php">
+<code>
+	session_start();
+	echo $_SESSION["CLAVE"];
+</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Subir archivos al servidor</li>
+					<li class="fragment highlight-red">Variables de sesión</li>
+					<ul class="long-ul">
+						<li>Generalidades</li>
+						<li>Abrir una sesión</li>
+						<li class="fragment highlight-red">Destruir una sesión</li>
+					</ul>
+					<li>Cookies</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Variables de Sesión</a> - Abrir una sesión</h2>
+				<p>Para eliminar todas las variables de sesión globales y destruir la sesión, hay que usar
+					<a>session_unset()</a> y <a>session_destroy()</a>.
+				</p>
+				<pre class="php">
+<code>
+	// remueve todas las variables de sesión
+	session_unset();
+
+	// destruye la sesión
+	session_destroy();
+</code>
+				</pre>
+			</section>
+
+			<section>
+				<h2 class="title"><a target="_blank" href="https://phpsandbox.io/e/x/ezqev">DEMO</a>
+				</h2>
+				<p><a target="_blank" href="https://phpsandbox.io/e/x/ezqev">https://phpsandbox.io/e/x/ezqev</a></p>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Subir archivos al servidor</li>
+					<li>Variables de sesión</li>
+					<li class="fragment highlight-red">Cookies</li>
+					<ul class="long-ul">
+						<li class="fragment highlight-red">Generalidades</li>
+						<li>Abrir una sesión</li>
+						<li>Destruir una sesión</li>
+					</ul>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Cookies</a> - Generalidades</h2>
+				<p>Una cookie se utiliza a menudo para <a>identificar a un usuario</a>.</p>
+				<p>Una cookie es un pequeño archivo que el <a>servidor guarda en el cliente</a>.</p>
+				<p>Cada vez que el mismo equipo solicita una página con un navegador, se <a>enviará la cookie
+						también</a>.</p>
+				<p>Con <a>PHP</a>, se puede tanto crear como recuperar valores de cookies.</p>
 			</section>
 
 			<section>
