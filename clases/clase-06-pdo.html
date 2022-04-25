@@ -245,7 +245,210 @@
 				<p><a>bindParam()</a> - Vincula una variable de PHP a un parámetro de
 					sustitución con nombre o de signo de
 					interrogación correspondiente de la sentencia
-					SQL que fue usada para preparar la sentencia.</p>
+					SQL que fue usada para preparar la sentencia. Sintaxis:</p>
+				<code><a>bindParam</a>($param, &$variable ,$tipo? , $length? )</code>
+				<ul class="long-ul">
+					<li><a>$param</a> - Identificador del parámetro.</li>
+					<li><a>$variable</a> - Nombre de la variable de PHP a vincular al parámetro de la sentencia SQL.
+					</li>
+					<li><a>$tipo</a> - Tipo de dato explícito para el parámetro, usando las constantes PDO::PARAM_*.
+					</li>
+					<li><a>$length</a> - Longitud del tipo de datos.</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>PDOStatement</a> - Métodos para vincular</h2>
+				<p>Ejemplo:</p>
+				<pre class="php">
+<code>
+	$variableId = 2432; // ID a buscar
+
+	// Sentencia con parámetros nombrados
+	$sentencia = $pdo->prepare('SELECT * FROM tabla WHERE ID = :id');
+	$sentencia->bindParam(':id', $variableId, PDO::PARAM_INT);
+	$sentencia->execute();
+
+	// Sentencia con Parámetros posicionales
+	$sentencia = $pdo->prepare('SELECT * FROM tabla WHERE ID = ?');
+	$sentencia->bindParam(1, $variableId, PDO::PARAM_INT);
+	$sentencia->execute();
+</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>PDOStatement</a> - Métodos para vincular</h2>
+				<p><a>bindValue()</a> - Vincula un valor al parámetro de sustitución con
+					nombre o de signo de interrogación
+					correspondiente de la sentencia SQL que fue
+					usada para preparar la sentencia. Sintaxis:</p>
+				<code><a>bindParam</a>($param, $valor ,$tipo?)</code>
+				<ul class="long-ul">
+					<li><a>$param</a> - Identificador del parámetro.</li>
+					<li><a>$valor</a> - Valor a vincular al parámetro de la sentencia SQL.</li>
+					<li><a>$tipo</a> - Tipo de dato explícito para el parámetro, usando las constantes PDO::PARAM_*.
+					</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>PDOStatement</a> - Métodos para vincular</h2>
+				<p>Ejemplo:</p>
+				<pre class="php">
+<code>
+	$variableId = 2432; // ID a buscar
+
+	// Sentencia con parámetros nombrados
+	$sentencia = $pdo->prepare('SELECT * FROM tabla WHERE ID = :id');
+	$sentencia->bindValue(':id', 2432, PDO::PARAM_INT);
+	$sentencia->execute();
+
+	// Sentencia con Parámetros posicionales
+	$sentencia = $pdo->prepare('SELECT * FROM tabla WHERE ID = ?');
+	$sentencia->bindValue(1, $variableId, PDO::PARAM_INT);
+	$sentencia->execute();
+</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>PDOStatement</a> - Métodos para vincular</h2>
+				<p><a>bindColumn()</a> - Vincula una columna a una variable de PHP. Cada llamada
+					a PDOStatement::fetch() o a PDOStatement::fetchAll()
+					actualizará todas las variables que estén vinculadas a
+					columnas. Sintaxis:</p>
+				<code><a>bindColumn</a>($column, $variable ,$tipo?, $maxLen?)</code>
+				<ul class="long-ul">
+					<li><a>$column</a> - Número (base 1) o nombre de la columna del
+						conjunto de resultados.</li>
+					<li><a>$variable</a> - Nombre de la variable de PHP a la que vincular
+						la columna.</li>
+					<li><a>$tipo</a> - Tipo de dato explícito para el parámetro, usando las constantes PDO::PARAM_*.
+					</li>
+					<li><a>$maxLen</a> - Longitud máxima sugerida para la pre
+						asignación.</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>PDOStatement</a> - Métodos para vincular</h2>
+				<p>Ejemplo:</p>
+				<pre class="php">
+<code>
+	$sentencia = $pdo->prepare('SELECT col1, col2, col3 FROM tabla ');
+	$sentencia->execute();
+	
+	/* Vincular por número de columna */
+	$sentencia->bindColumn(1, $var1, PDO::PARAM_INT);
+	$sentencia->bindColumn(2, $var2, PDO::PARAM_STR);
+	
+	/* Vincular por nombre de columna */
+	$sentencia->bindColumn('col3', $var3, PDO::PARAM_BOOL);
+	
+	while ($fila = $sentencia->fetch(PDO::FETCH_BOUND)) {
+		$datos = $var1 . "\t" . $var2 . "\t" . $var3 . "\n";
+		print $datos;
+	}
+</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Introducción a PDO</li>
+					<li>Conexiones</li>
+					<li>Sentencias Preparadas</li>
+					<li class="fragment highlight-red">PDOStatement</li>
+					<ul class="long-ul">
+						<li>Métodos para vincular</li>
+						<li class="fragment highlight-red">Métodos para obtener valores</li>
+					</ul>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>PDOStatement</a> - Métodos para obtener valores</h2>
+				<p><a>fetch()</a> - Obtiene una fila de un conjunto de resultados
+					asociado al objeto PDOStatement. El
+					parámetro fetch_style determina cómo PDO
+					devuelve la fila. Sintaxis:</p>
+				<code><a>fetch</a>($fetch_style?)</code>
+				<ul class="long-ul">
+					<li><a>$fetch_style</a> - Este valor debe ser una de las constantes
+						PDO::FETCH_*.</li>
+					<li>El valor de retorno de esta función en caso de éxito
+						depende del tipo de obtención. En todos los casos, se
+						devuelve <a>FALSE</a> en caso de error.</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>PDOStatement</a> - Métodos para obtener valores</h2>
+				<ul class="long-ul">
+					<li><a>PDO::FETCH_ASSOC</a> - Devuelve un array
+						indexado por los nombres de las columnas del
+						conjunto de resultados.</li>
+					<li><a>PDO::FETCH_NUM</a> - Devuelve un array indexado
+						por el número de columna tal como fue devuelto
+						en el conjunto de resultados, comenzando por la
+						columna 0.</li>
+					<li><a>PDO::FETCH_BOTH</a> - Devuelve
+						un array indexado tanto por nombre de columna,
+						como numéricamente con índice de base 0 tal
+						como fue devuelto en el conjunto de resultados.</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>PDOStatement</a> - Métodos para obtener valores</h2>
+				<ul class="long-ul">
+					<li><a>PDO::FETCH_OBJ</a> - Devuelve un objeto anónimo con
+						nombres de propiedades que se corresponden a los
+						nombres de las columnas devueltas en el conjunto de
+						resultados.</li>
+					<li><a>PDO::FETCH_CLASS</a> - Devuelve una nueva instancia de la
+						clase solicitada, haciendo corresponder las columnas
+						del conjunto de resultados con los nombres de las
+						propiedades de la clase.</li>
+					<li><a>PDO::FETCH_BOUND</a> - Devuelve TRUE y asigna los
+						valores de las columnas del conjunto de resultados a las
+						variables de PHP a las que fueron vinculadas con el
+						método PDOStatement::bindColumn().</li>
+				</ul>
+			</section>
+
+
+			<section class="left">
+				<h2><a>PDOStatement</a> - Métodos para obtener valores</h2>
+				<p><a>fetchAll()</a> - Devuelve un array que contiene todas las filas
+					de un conjunto de resultados. El
+					parámetro fetch_style determina cómo PDO
+					devuelve la fila. Sintaxis:</p>
+				<code><a>fetchAll</a>($fetch_style?)</code>
+				<ul class="long-ul">
+					<li><a>$fetch_style</a> - Este valor debe ser una de las constantes
+						PDO::FETCH_*.</li>
+					<li>El valor de retorno de esta función en caso de éxito
+						depende del tipo de obtención. En todos los casos, se
+						devuelve <a>FALSE</a> en caso de error.</li>
+				</ul>
+			</section>
+
+
+			<section class="left">
+				<h2><a>PDOStatement</a> - Métodos para obtener valores</h2>
+				<p><a>fetchObject()</a> - Obtiene la siguiente fila y la devuelve como un
+					objeto. Esta función es una alternativa para
+					PDOStatement::fetch() con el
+					estilo PDO::FETCH_CLASS o PDO::FETCH_OBJ. Sintaxis:</p>
+				<code><a>fetchObject</a>($className, $args?)</code>
+				<ul class="long-ul">
+					<li><a>$className</a> - Nombre de la clase creada.</li>
+					<li><a>$args </a> - Los elementos de este array son pasados al
+						constructor.</li>
+				</ul>
 			</section>
 
 			<section>
