@@ -35,13 +35,90 @@
 			<section class="left">
 				<h2><a>Temas:</a></h2>
 				<ul class="long-ul">
-					<li>Introducción a PDO</li>
+					<li class="fragment highlight-red">Introducción a PDO</li>
 					<li>Conexiones</li>
 					<li>Sentencias Preparadas</li>
 					<li>PDOStatement</li>
 				</ul>
 			</section>
 
+			<section class="left">
+				<h2>Introducción a <a>PDO</a></h2>
+				<p><a>PDO</a> define una interfaz ligera para poder acceder a bases de datos en <a>PHP</a>.</p>
+				<p><a>PDO</a> proporciona una capa de abstracción de acceso a datos, independientemente
+					de la base de datos que se esté utilizando, se emplean las mismas funciones para realizar consultas
+					y obtener datos.</p>
+				<p><a>PDO</a> viene con <a>PHP</a> 5.1, y está disponible como una extensión PECL para PHP 5.0</p>
+				<p><a>PDO</a> requiere las características nuevas de POO del núcleo de PHP 5, por lo que no se ejecutará
+					con
+					versiones anteriores de <a>PHP</a>.</p>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Introducción a PDO</li>
+					<li class="fragment highlight-red">Conexiones</li>
+					<li>Sentencias Preparadas</li>
+					<li>PDOStatement</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2>Conexiones</h2>
+				<p>Las conexiones se establecen creando instancias de la clase base <a>PDO</a>.</p>
+				<p>No importa el controlador que se utilice siempre se usará el nombre de la clase <a>PDO</a>.</p>
+				<p>El constructor acepta parámetros para especificar el origen de la base de datos (conocido como DSN)
+					y, opcionalmente, el nombre de usuario y la contraseña (si la hubiera).</p>
+				<pre class="php">
+<code>
+	$conStr = "mysql:host=localhost;dbname=pruebaDB";
+	$pdo = new PDO($conStr, $user, $pass);
+</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2>Conexiones</h2>
+				<p>Si hubieran errores de conexión, se lanzará un objeto <a>PDOException</a>.</p>
+				<pre class="php">
+<code>
+	try {
+		$conStr = "mysql:host=localhost; dbname=pruebaDB";
+		$pdo = new PDO($conStr, $user, $pass);
+	}
+	catch(PDOException $e){
+		echo "Error: " .$e->getMessage();
+	}
+</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2>Conexiones</h2>
+				<p>Una vez realizada con éxito una conexión a la base de datos, será devuelta una instancia de la clase
+					<a>PDO</a> al script.
+				</p>
+				<p>La conexión permanecerá activa durante el tiempo de vida del objeto <a>PDO</a>.</p>
+				<p>Para cerrar la conexión, es necesario destruir el objeto asegurándose de que todas las referencias a
+					él existentes sean eliminadas (esto se puede hacer asignando <a>NULL</a> a la variable que contiene
+					el
+					objeto).</p>
+				<p>Si no se realiza explícitamente, <a>PDO</a> cerrará automáticamente la conexión cuando el script
+					finalice.
+				</p>
+			</section>
+
+			<section>
+				<h2 class="title"><a target="_blank" href="https://onlinegdb.com/SgLgRXbCW">DEMO</a>
+				</h2>
+				<p><a target="_blank" href="https://onlinegdb.com/SgLgRXbCW">https://onlinegdb.com/SgLgRXbCW</a>
+				</p>
+			</section>
+
+			<section>
+				<h2 class="title"><a>Dudas ó consultas</a></h2>
+			</section>
 		</div>
 	</div>
 
