@@ -65,7 +65,7 @@
 			</section>
 
 			<section class="left">
-				<h2>Conexiones</h2>
+				<h2><a>Conexiones</a></h2>
 				<p>Las conexiones se establecen creando instancias de la clase base <a>PDO</a>.</p>
 				<p>No importa el controlador que se utilice siempre se usará el nombre de la clase <a>PDO</a>.</p>
 				<p>El constructor acepta parámetros para especificar el origen de la base de datos (conocido como DSN)
@@ -79,7 +79,7 @@
 			</section>
 
 			<section class="left">
-				<h2>Conexiones</h2>
+				<h2><a>Conexiones</a></h2>
 				<p>Si hubieran errores de conexión, se lanzará un objeto <a>PDOException</a>.</p>
 				<pre class="php">
 <code>
@@ -95,7 +95,7 @@
 			</section>
 
 			<section class="left">
-				<h2>Conexiones</h2>
+				<h2><a>Conexiones</a></h2>
 				<p>Una vez realizada con éxito una conexión a la base de datos, será devuelta una instancia de la clase
 					<a>PDO</a> al script.
 				</p>
@@ -114,6 +114,138 @@
 				</h2>
 				<p><a target="_blank" href="https://onlinegdb.com/SgLgRXbCW">https://onlinegdb.com/SgLgRXbCW</a>
 				</p>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Introducción a PDO</li>
+					<li>Conexiones</li>
+					<li class="fragment highlight-red">Sentencias Preparadas</li>
+					<li>PDOStatement</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Sentencias Preparadas</a></h2>
+				<p>Muchas de las bases de datos más maduras admiten el concepto de sentencias preparadas.</p>
+				<p>Estas pueden definirse como un tipo de plantillas compiladas para SQL que las aplicaciones quieren
+					ejecutar, pudiendo ser personalizadas utilizando parámetros.</p>
+				<p>Las sentencias preparadas ofrecen grandes beneficios:</p>
+				<ul class="long-ul">
+					<li>La consulta <a>sólo necesita ser analizada</a> (o
+						preparada) <a>una vez</a>, pero puede ser ejecutada
+						muchas veces con los mismos o diferentes
+						parámetros.</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Sentencias Preparadas</a></h2>
+				<ul class="long-ul">
+					<li>Cuando la consulta se prepara, la base de datos
+						analizará, compilará y optimizará su plan para
+						ejecutarla.</li>
+					<li>Mediante el empleo de una sentencia preparada, la
+						aplicación <a>evita repetir el ciclo</a> de
+						análisis/compilación/optimización. Esto significa que
+						las sentencias preparadas utilizan <a>menos recursos</a> y
+						se ejecutan <a>más rápidamente</a>.</li>
+					<li>Los parámetros para las sentencias
+						preparadas <a>NO necesitan estar entrecomillados</a>;
+						el controlador automáticamente se encarga de
+						esto.
+					</li>
+					<li>Si una aplicación usa exclusivamente sentencias
+						preparadas, el desarrollador puede estar seguro de
+						que <a>no hay cabida para inyecciones de SQL</a>.</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Sentencias Preparadas</a></h2>
+				<ul class="long-ul">
+					<li>Las sentencias preparadas son tan útiles que son
+						la única característica que <a>PDO</a> emulará para los
+						controladores que no las soporten. Esto asegura
+						que una aplicación sea capaz de emplear el
+						mismo paradigma de acceso a datos
+						independientemente de las capacidades de la
+						base de datos.</li>
+				</ul>
+				<p>Las declaraciones preparadas básicamente funcionan así:</p>
+				<ul class="long-ul">
+					<li><a>Prepare()</a> - Una plantilla de declaración de <a>SQL</a>
+						se crea y se envía a la base de datos. Ciertos
+						valores se dejan sin especificar (parámetros).
+						(Retorna un objeto de tipo <a>PDOStatement</a>).</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Sentencias Preparadas</a></h2>
+				<ul class="long-ul">
+					<li>La base de datos analiza, compila y realiza la
+						optimización de consultas en la plantilla y
+						almacena el resultado sin ejecutarlo.</li>
+					<li><a>Execute()</a> - En un momento posterior, la
+						aplicación enlaza ("bindea") los valores a los
+						parámetros y la base de datos ejecuta la
+						instrucción.</li>
+				</ul>
+				<pre class="php">
+<code>
+	// Sentencia preparada sin parámetros
+	$sentencia = $pdo->prepare('SELECT * FROM tabla');
+	$sentencia->execute();
+	// Sentencia preparada con parámetros
+	$sentencia = $pdo->prepare('SELECT * FROM tabla WHERE ID = :id');
+	$sentencia->execute(array(':id' => 3));
+</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Introducción a PDO</li>
+					<li>Conexiones</li>
+					<li>Sentencias Preparadas</li>
+					<li class="fragment highlight-red">PDOStatement</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>PDOStatement</a></h2>
+				<p>Representa una sentencia preparada y, después
+					de la ejecución de la instrucción, un conjuntos
+					de resultados asociado.</p>
+				<p>Posee métodos para vincular (bindear) valores a
+					parámetros.</p>
+				<p>Posee métodos para obtener los valores de un
+					conjunto de resultados.</p>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Introducción a PDO</li>
+					<li>Conexiones</li>
+					<li>Sentencias Preparadas</li>
+					<li class="fragment highlight-red">PDOStatement</li>
+					<ul class="long-ul">
+						<li class="fragment highlight-red">Métodos para vincular</li>
+						<li>Métodos para obtener valores</li>
+					</ul>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>PDOStatement</a> - Métodos para vincular</h2>
+				<p><a>bindParam()</a> - Vincula una variable de PHP a un parámetro de
+					sustitución con nombre o de signo de
+					interrogación correspondiente de la sentencia
+					SQL que fue usada para preparar la sentencia.</p>
 			</section>
 
 			<section>
