@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Clase 06 - Programación III - UTN FRA 2022</title>
+
+	<link rel="stylesheet" href="../assets/css/reveal.css">
+	<link rel="stylesheet" href="../assets/css/theme/white.css">
+
+	<link rel="stylesheet" href="../assets/lib/css/vs.css">
+
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../assets/css/print/pdf.css' : '../assets/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="main white">
+				<img src="../assets/img/logo.png" alt="">
+				<h1 class="title">Clase 06</h1>
+				<h2 class="subtitle">PDO<a href="https://www.php.net/">(PHP Data Object)</a></h2>
+				<small><a href="../index.html"> Volver</a></small>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Introducción a PDO</li>
+					<li>Conexiones</li>
+					<li>Sentencias Preparadas</li>
+					<li>PDOStatement</li>
+				</ul>
+			</section>
+
+		</div>
+	</div>
+
+	<script src="../assets/lib/js/head.min.js"></script>
+	<script src="../assets/js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			width: 1280,
+			height: 720,
+
+			dependencies: [
+				{ src: '../assets/plugin/markdown/marked.js' },
+				{ src: '../assets/plugin/markdown/markdown.js' },
+				{ src: '../assets/plugin/notes/notes.js', async: true },
+				{ src: '../assets/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
