@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Clase 08 - Programación III - UTN FRA 2022</title>
+
+	<link rel="stylesheet" href="../assets/css/reveal.css">
+	<link rel="stylesheet" href="../assets/css/theme/white.css">
+
+	<link rel="stylesheet" href="../assets/lib/css/vs.css">
+
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../assets/css/print/pdf.css' : '../assets/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section class="main white">
+				<img src="../assets/img/logo.png" alt="">
+				<h1 class="title">Clase 08</h1>
+				<h2 class="subtitle">API REST y <a href="https://www.php.net/">SLIM</a></h2>
+				<small><a href="../index.html"> Volver</a></small>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li class="fragment highlight-red">Introducción a REST</li>
+					<li>Composer</li>
+					<li>Slim Framework</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2>REST - <a>Representational State Transfer</a></h2>
+				<p>Es un tipo de arquitectura de desarrollo web que se
+					apoya totalmente en el estándar <a>HTTP</a>.</p>
+				<p><a>REST</a> nos permite crear servicios y aplicaciones que
+					pueden ser usadas por cualquier dispositivo o cliente
+					que entienda <a>HTTP</a>, por lo que es increíblemente más
+					simple y convencional que otras alternativas que se
+					han usado en los últimos diez años como <a>SOAP</a> y
+					<a>XML-RPC</a>.
+				</p>
+				<p> Por lo tanto <a>REST</a> es el tipo de arquitectura más
+					natural y estándar para crear <a>APIs</a> para servicios
+					orientados a Internet.</p>
+			</section>
+
+			<section class="left">
+				<h2>REST - <a>Representational State Transfer</a></h2>
+				<p><a>REST</a> es un conjunto de convenciones para
+					aplicaciones web y servicios web, que se centra
+					principalmente en la manipulación de recursos a
+					través de especificaciones <a>HTTP</a>.</p>
+				<p>Podemos decir que <a>REST</a> es una interfaz web
+					estándar y simple que nos permite interactuar
+					con servicios web de una manera muy cómoda.</p>
+				<p> Gracias a <a>REST</a> la web ha disfrutado de
+					escalabilidad como resultado de una serie de
+					diseños fundamentales clave:</p>
+			</section>
+
+			<section class="left">
+				<h2>Un protocolo cliente/servidor <a>sin estado</a>:</h2>
+				<p>Cada mensaje <a>HTTP</a> contiene toda la información
+					necesaria para comprender la petición.</p>
+				<p>Como resultado, ni el cliente ni el servidor necesitan
+					recordar ningún estado de las comunicaciones entre
+					mensajes.</p>
+				<h2>Un conjunto de operaciones <a>bien definidas</a>:</h2>
+				<p> Que se aplican a todos los recursos de información:
+					<a>HTTP</a> en sí define un conjunto pequeño de
+					operaciones, las más importantes son <a>POST, GET,
+						PUT y DELETE</a>.
+				</p>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Introducción a REST</li>
+					<li class="fragment highlight-red">Composer</li>
+					<li>Slim Framework</li>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Composer</a></h2>
+				<img style="height: 180px; text-align: center;" src="../assets/img/composer.png" alt="">
+				<p><a>Composer</a> es una
+					herramienta para la
+					gestión de dependencias
+					en <a>PHP</a>.</p>
+				<p>Permite declarar las
+					bibliotecas de las que
+					depende tu proyecto y las
+					administrará
+					(instalará/actualizará)
+					para vos.</p>
+				<a href="https://getcomposer.org/download/">https://getcomposer.org/download/</a>
+				</p>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Introducción a REST</li>
+					<li>Composer</li>
+					<li class="fragment highlight-red">Slim Framework</li>
+					<ul class="long-ul">
+						<li class="fragment highlight-red">Generalidades</li>
+						<li>Configurar index.php & .htaccess</li>
+						<li>Ruteo</li>
+					</ul>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2><a>Slim Framework</a></h2>
+				<img style="height: 180px; text-align: center;" src="../assets/img/slim.png" alt="">
+				<p>Slim es un framework micro de PHP que ayuda a
+					escribir rápidamente aplicaciones Web y APIs
+					sencillas pero poderosas.</p>
+				<p>En esencia, Slim es un despachador que recibe una
+					solicitud HTTP, invoca una rutina de devolución de
+					llamada apropiada y devuelve una respuesta HTTP.</p>
+				<a
+					href="https://www.slimframework.com/docs/start/installation.html">https://www.slimframework.com/docs/start/installation.html</a>
+				</p>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Introducción a REST</li>
+					<li>Composer</li>
+					<li class="fragment highlight-red">Slim Framework</li>
+					<ul class="long-ul">
+						<li>Generalidades</li>
+						<li class="fragment highlight-red">Configurar index.php & .htaccess</li>
+						<li>Ruteo</li>
+					</ul>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2>Configurar <a>index.php</a></h2>
+				<p>En este archivo se pondrán los verbos HTTP que se
+					recibirán y las rutas por las cuales vamos a poder
+					acceder a ellos.</p>
+				<pre class="php">
+	<code>
+		use Psr\Http\Message\ResponseInterface as Response;
+		use Psr\Http\Message\ServerRequestInterface as Request;
+		use Psr\Http\Server\RequestHandlerInterface;
+		use Slim\Factory\AppFactory;
+		use Slim\Routing\RouteCollectorProxy;
+		use Slim\Routing\RouteContext;
+
+		// Instantiate App
+		$app = AppFactory::create();
+	</code>
+</pre>
+			</section>
+
+			<section class="left">
+				<h2>Configurar <a>index.php</a></h2>
+				<p>Definir el conjunto de operaciones son: POST, GET, PUT y DELETE. </p>
+				<pre class="php">
+	<code>
+// Instantiate App
+$app = AppFactory::create();
+// Routes
+$app->group('/usuarios', function (RouteCollectorProxy $group) {
+	$group->get('[/]', \UsuarioController::class . ':TraerTodos');
+	$group->get('/{usuario}', \UsuarioController::class . ':TraerUno');
+	$group->post('[/]', \UsuarioController::class . ':CargarUno');
+	});
+$app->get('[/]', function (Request $request, Response $response) {    
+	$response->getBody()->write("Slim Framework 4 PHP");
+	return $response;
+});
+$app->run();
+	</code>
+</pre>
+			</section>
+
+			<section class="left">
+				<h2>Configurar <a>index.php</a></h2>
+				<p>Todas la peticiones de HTTP son atendidas por este
+					archivo y no tendría que ponerse explícitamente en la
+					ruta de acceso</p>
+				<p>Esto esta mal :</p>
+				<a>http://localhost:8080/miApiRest/index.php/saludo</a>
+				<p>Esto esta bien :</p>
+				<a>http://localhost:8080/miApiRest/saludo</a>
+				<p>Para lograr esto se debe crear o modificar el archivo
+					<a>“.HTACCESS”</a>
+				</p>
+			</section>
+
+			<section class="left">
+				<h2>Configurar <a>.htaccess</a></h2>
+				<p>Los ficheros .htaccess o "ficheros de configuración
+					distribuida", facilitan la forma de realizar cambios en la
+					configuración de contexto de un directorio.</p>
+				<p>Un fichero, que contiene una o más directivas, se coloca
+					en un documento específico de un directorio, y estas
+					directivas aplican a ese directorio y todos sus
+					subdirectorios.</p>
+				<pre class="php">
+<code>
+	RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^ index.php [QSA,L]
+</code>
+					</pre>
+			</section>
+
+			<section class="left">
+				<h2><a>Temas:</a></h2>
+				<ul class="long-ul">
+					<li>Introducción a REST</li>
+					<li>Composer</li>
+					<li class="fragment highlight-red">Slim Framework</li>
+					<ul class="long-ul">
+						<li>Generalidades</li>
+						<li>Configurar index.php & .htaccess</li>
+						<li class="fragment highlight-red">Ruteo</li>
+					</ul>
+				</ul>
+			</section>
+
+			<section class="left">
+				<h2>Ruteo</h2>
+				<pre class="php">
+<code>
+	$app->get('/libros', function ($request, $response, array $args) {
+		// Obtener libros
+	});
+	$app->get('/libros/{id}', function ($request, $response, array $args) {
+		// Obtener libros por ID
+	});
+	$app->post('/libros', function ($request, $response, array $args) {
+		// Crear un libro
+	});
+	$app->put('/libros/{id}', function ($request, $response, array $args) {
+		// Actualizar libro por ID
+	});
+	$app->delete('/libros/{id}', function ($request, $response, array $args) {
+		// Borrar libros por ID
+	});
+</code>
+				</pre>
+			</section>
+
+			<section class="left">
+				<h2>Ruteo</h2>
+				<p>Más ejemplos de ruteo: </p>
+				<a href="https://www.slimframework.com/docs/v4/objects/routing.html">
+					https://www.slimframework.com/docs/v4/objects/routing.html
+				</a>
+			</section>
+
+		</div>
+	</div>
+
+	<script src="../assets/lib/js/head.min.js"></script>
+	<script src="../assets/js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			width: 1280,
+			height: 720,
+
+			dependencies: [
+				{ src: '../assets/plugin/markdown/marked.js' },
+				{ src: '../assets/plugin/markdown/markdown.js' },
+				{ src: '../assets/plugin/notes/notes.js', async: true },
+				{ src: '../assets/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
